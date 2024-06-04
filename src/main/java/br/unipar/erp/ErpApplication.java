@@ -40,6 +40,11 @@ public class ErpApplication implements CommandLineRunner {
 			System.out.println("Usuario " + usuariolista.getNome());
 		});
 
+		usuarioRepository.
+				findByUsuarioAndSenha("springjpa", "123456");
+
+						usuarioRepository.deleteAll();
+
 
 
 	}
