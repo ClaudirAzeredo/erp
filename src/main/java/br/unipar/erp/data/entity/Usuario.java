@@ -1,9 +1,6 @@
 package br.unipar.erp.data.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +11,13 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@Table(name="usuario")
+@Table(name="usuarios")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
 

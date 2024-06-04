@@ -1,15 +1,19 @@
 package br.unipar.erp;
 
 import br.unipar.erp.data.entity.Usuario;
-import org.junit.jupiter.api.Test;
+import br.unipar.erp.data.repositoy.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
 
-@SpringBootTest
+@SpringBootApplication
 class ErpApplicationTests implements CommandLineRunner {
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
 	public static void main(String[] args) {
 
@@ -24,5 +28,10 @@ class ErpApplicationTests implements CommandLineRunner {
 		usuario.setSenha("123456");
 		usuario.setUsuario("springjpa");
 		usuario.setDataNascimento(LocalDate.of(1993,6,20));
+
+		usuarioRepository.save(usuario);
+
+		Long totalRegistros = usuarioRepository.count();
+		System.out.println("Registros : " + totalRegistros);
 	}
 }
