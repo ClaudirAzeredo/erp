@@ -33,5 +33,12 @@ class ErpApplicationTests implements CommandLineRunner {
 
 		Long totalRegistros = usuarioRepository.count();
 		System.out.println("Registros : " + totalRegistros);
+
+		usuarioRepository.
+				findByUsuarioAndSenha("springjpa", "123456");
+
+						usuarioRepository.deleteAll();
+
+		
 	}
 }
